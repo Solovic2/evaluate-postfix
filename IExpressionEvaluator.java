@@ -11,6 +11,16 @@ package eg.edu.alexu.csd.datastructure.stack;
  * @author Momen
  */
 public interface IExpressionEvaluator {
+    /**
+     * covert infix to postfix
+     * @param expression
+     * @return string
+     */
    public String infixToPostfix(String expression);
+   /**
+    * calculate equation of postfix
+    * @param expression
+    * @return 
+    */
    public int evaluate(String expression); 
 }

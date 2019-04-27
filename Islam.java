@@ -14,7 +14,12 @@ import static java.lang.Math.pow;
  */
 
 public class Islam implements IExpressionEvaluator{
-public int switchs(char a){
+ /**
+  * switches it use to give the operator an parenthesis
+  * @param a
+  * @return the parenthesis
+  */
+    public int switchs(char a){
 int s=0;
     switch(a){
         case '+': s=1;
@@ -32,7 +37,14 @@ int s=0;
     }
 return s;
 }
-public int sw(int a,int b,char c){
+/**
+ * it doing calculation between numbers by using a suitable operation c
+ * @param a
+ * @param b
+ * @param c
+ * @return The calculation of a and b
+ */
+    public int sw(int a,int b,char c){
     int calc=0;
     switch(c){
         case '+': calc= a+b;
@@ -56,6 +68,11 @@ public int sw(int a,int b,char c){
     return calc;
 }
 int va=0;
+/**
+ * It convert from infix to postfix
+ * @param expression
+ * @return 
+ */
     public String infixToPostfix(String expression){
         Stack op=new Stack();
        String postfix="";
@@ -123,6 +140,12 @@ int va=0;
         } 
         return postfix;
     }
+   /**
+    * Calculate the equation
+    * if there are '(' the function ignore it and don't use it 
+    * @param expression
+    * @return 
+    */
     public int evaluate(String expression){
         Stack v=new Stack();
         int sum=0;

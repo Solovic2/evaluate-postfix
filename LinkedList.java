@@ -10,7 +10,7 @@ import static java.time.Clock.system;
  */
 
 /**
- *
+ *linked list which i add on it and remove element in stack
  * @author Momen
  */
 
