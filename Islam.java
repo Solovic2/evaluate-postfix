@@ -90,7 +90,9 @@ int va=0;
                    }else{
                         postfix+=" ";
                         postfix+=op.pop().charAt(0);
-
+                   if(op.peak().charAt(0)=='('){
+                      q= op.pop().charAt(0);
+                   }
                         }
                         if(i==expression.length()-1 && op.IsEmpty()==false){
                              postfix+=" ";
