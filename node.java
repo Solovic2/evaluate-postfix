@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.stack;
+package eg.edu.alexu.csd.datastructure.stack.cs12;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
