@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.stack.cs12;
+package eg.edu.alexu.csd.datastructure.stack;
 
 
 
@@ -20,9 +20,9 @@ public class Stack implements IStack {
         top++;
         ob.add(s);
     }
-    public String pop(){
+    public Object pop(){
        if(ob.isEmpty()==false){
-            String s=ob.get(top);
+            Object s=ob.get(top);
             ob.remove(top);
             top--;
             return s;
@@ -31,7 +31,7 @@ public class Stack implements IStack {
            return "Exception";
        }
     }
-    public String peak(){
+    public Object peak(){
        return ob.get(top);
     }
     public boolean IsEmpty(){

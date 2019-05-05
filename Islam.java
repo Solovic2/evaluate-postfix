@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package eg.edu.alexu.csd.datastructure.stack.cs12;
+package eg.edu.alexu.csd.datastructure.stack;
 
 import static java.lang.Math.pow;
 
@@ -19,9 +19,9 @@ public class Islam implements IExpressionEvaluator{
   * @param a
   * @return the parenthesis
   */
-    public int switchs(char a){
+    public int switchs(String a){
 int s=0;
-    switch(a){
+    switch(a.charAt(0)){
         case '+': s=1;
                   break;
         case '-': s=1;
@@ -84,44 +84,44 @@ int va=0;
                     va++;
                   op.push(""+expression.charAt(i));
                }else if(expression.charAt(i)==')'){
-                    char q;
-                   if(op.peak().charAt(0)=='('){
-                      q= op.pop().charAt(0);
+                    String q;
+                   if(op.peak()=="("){
+                      q= (String) op.pop();
                    }else{
                         postfix+=" ";
-                        postfix+=op.pop().charAt(0);
-                   if(op.peak().charAt(0)=='('){
-                      q= op.pop().charAt(0);
+                        postfix+=op.pop();
+                   if(op.peak()=="("){
+                      q= (String) op.pop();
                    }
                         }
                         if(i==expression.length()-1 && op.IsEmpty()==false){
                              postfix+=" ";
                         }                   
-               }else if(op.IsEmpty()==true || op.peak().charAt(0)=='('){  
+               }else if(op.IsEmpty()==true || op.peak()=="("){  
                   postfix+=" "; 
                   op.push(""+expression.charAt(i));
                }else {
                     postfix+=" "; 
-                    char s1=op.peak().charAt(0);
+                    String s1= (String) op.peak();
                     op.push(""+expression.charAt(i));
-                    char s2=op.pop().charAt(0);
+                    String s2=(String) op.pop();
                     int x1=switchs(s2);
                     int x2=switchs(s1);
                     if(x1>x2){
                        op.push(""+expression.charAt(i));
                     }if(x2>=x1 && x2 !=7){
-                        postfix+=op.pop().charAt(0);
+                        postfix+=op.pop();
                         postfix+=" ";
                         if(op.IsEmpty()==false){
                             for(int f=0;f<op.size();f++){
-                                if(op.peak().charAt(0)!='('){
-                                    char s3=op.peak().charAt(0);
+                                if(op.peak()!="("){
+                                    String s3=(String) op.peak();
                                     op.push(""+expression.charAt(i));
-                                    char s4=op.pop().charAt(0);
+                                    String s4=(String) op.pop();
                                     int x3=switchs(s4);
                                     int x4=switchs(s3);
                                     if(x4>=x3){
-                                        postfix+=op.pop().charAt(0);
+                                        postfix+=op.pop();
                                         postfix+=" ";
                                     }
                                }
@@ -136,7 +136,7 @@ int va=0;
      if(Character.isDigit(postfix.charAt(postfix.length()-1)))
         postfix+=" "; 
         for(int j=0;j<f; j++){
-            postfix+=op.pop().charAt(0);
+            postfix+=op.pop();
               if(j<f-1)
              postfix+=" ";
         } 
@@ -161,8 +161,8 @@ int va=0;
                     if(v.size()!=1){
                       String t;
                       String t2;
-                      t=v.pop();
-                      t2=v.pop();
+                      t=(String) v.pop();
+                      t2=(String) v.pop();
                       int x=Integer.parseInt(t);
                       int x1=Integer.parseInt(t2);  
                       z=sw(x1,x,expression.charAt(i+1));

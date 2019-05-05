@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.stack.cs12;
+package eg.edu.alexu.csd.datastructure.stack;
 
 
 import static java.time.Clock.system;
@@ -69,7 +69,7 @@ public class LinkedList {
         }
         return length;
     }
-    public String get(int index){
+    public Object get(int index){
       node i=head;
         int counter;
        counter= getlength();

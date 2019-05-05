@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package eg.edu.alexu.csd.datastructure.stack.cs12;
+package eg.edu.alexu.csd.datastructure.stack;
 
 /**
  *

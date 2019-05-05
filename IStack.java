@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package eg.edu.alexu.csd.datastructure.stack.cs12;
+package eg.edu.alexu.csd.datastructure.stack;
 
 /**
  *
@@ -20,12 +20,12 @@ public interface IStack {
    * pop from stack
    * @return string 
    */
-   public String pop(); 
+   public Object pop(); 
    /**
     * peak the top of stack without removing it
     * @return 
     */
-   public String peak();
+   public Object peak();
   /**
    * check Empty stack or not
    * @return string 

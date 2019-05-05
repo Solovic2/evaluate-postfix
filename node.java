@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.datastructure.stack.cs12;
+package eg.edu.alexu.csd.datastructure.stack;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -7,10 +7,12 @@ package eg.edu.alexu.csd.datastructure.stack.cs12;
  */
 
 /**
- *
- * @author Momen
+ * Node For linked list
+ * @author 
  */
 public class node {
      node  next =null;
-     String value;
+     Object value;
+    
 }
+
