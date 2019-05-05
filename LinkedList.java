@@ -17,23 +17,12 @@ import static java.time.Clock.system;
 public class LinkedList {
     private  node head=null ;
    // private node node;
-    
-    public void add (String c, int index){
-        node i=head;
-        node c1=new node();
-        c1.value=c;
-        if(index==0){
-            c1.next=head;
-            head=c1;
-        }else{
-           for(int count=0;count <index-1 ;count++){
-                   i=i.next;
-            }  
-            c1.next=i.next;
-            i.next=c1;
-        }
-    }
-    public void add(String c){
+      /**
+     * Add Element At Last Of List
+     *
+     * @param c
+     */
+    public void add(Object c){
         node i=head;
         node c2=new node();
         c2.value=c;
@@ -51,7 +40,9 @@ public class LinkedList {
             }
         }
         
-    }
+    } /**
+     * Print The LinkedList
+     */
     public void print(){
         node i=head;
        while(i!=null){
@@ -60,6 +51,11 @@ public class LinkedList {
        }
        System.out.println();
     }
+       /**
+     * Get The Size Of LinkedList
+     *
+     * @return Integer
+     */
     public  int  getlength(){
         node i=head;
         int length=0;
@@ -69,6 +65,12 @@ public class LinkedList {
         }
         return length;
     }
+        /**
+     * Get The Element At Specified Index In LinkedList
+     *
+     * @param index
+     * @return integer
+     */
     public Object get(int index){
       node i=head;
         int counter;
@@ -89,7 +91,13 @@ public class LinkedList {
             return i.value;
         }
     }
-    public void set(int index, String c){
+     /**
+     * Set And Change Specified  Index With Another Variable At LinkedList
+     *
+     * @param index
+     * @param c
+     */ 
+    public void set(int index, Object c){
         int counter;
         counter=getlength();
             node i=head;
@@ -110,7 +118,9 @@ public class LinkedList {
         }
         
     }
-   
+    /**
+     * Clear The LinkedList
+     */
     public void clear(){
     	if(head!=null) {
         head.next=null;
@@ -118,6 +128,11 @@ public class LinkedList {
         
  
     }
+    /**
+     * Check If The LinkedList is Empty Or Not
+     *
+     * @return boolean
+     */
     public boolean isEmpty(){
         node i=head;
         if(i==null){
@@ -126,6 +141,11 @@ public class LinkedList {
             return false;
         }
     }
+     /**
+     * Remove An Element At Specified Index At List
+     *
+     * @param index
+     */
     public void remove(int index){
         node i=head;
         int counter;
@@ -151,7 +171,14 @@ public class LinkedList {
             j.next=null;
         }
     }
-    public boolean contains(String c){
+    
+    /**
+     * Check  The Repeated Value
+     *
+     * @param c
+     * @return boolean
+     */
+    public boolean contains(Object c){
         node i=head;
         while(i!=null){
             if(i.value==(c))
