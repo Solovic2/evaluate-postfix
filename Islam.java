@@ -84,16 +84,22 @@ int va=0;
                     va++;
                   op.push(""+expression.charAt(i));
                }else if(expression.charAt(i)==')'){
-                    String q;
-                   if(op.peak()=="("){
-                      q= (String) op.pop();
-                   }else{
+                    String q="";
+                    q= (String) op.peak();
+                    while( q == null ? (""+'(') != null : !q.equals(""+'(') ){
                         postfix+=" ";
                         postfix+=op.pop();
-                   if(op.peak()=="("){
-                      q= (String) op.pop();
-                   }
+                        
+                        if(op.IsEmpty()){
+                            break;
                         }
+                        q=  (String) op.peak();
+                        if(q == null ? (""+'(') == null : q.equals(""+'(')){
+                            q= (String) op.pop();
+                            break;
+                        }
+                       }
+
                         if(i==expression.length()-1 && op.IsEmpty()==false){
                              postfix+=" ";
                         }                   
