@@ -76,16 +76,24 @@ int va=0;
     public String infixToPostfix(String expression){
         Stack op=new Stack();
        String postfix="";
-        for(int i=0;i<expression.length();i++){      
-            if(Character.isDigit(expression.charAt(i))){
-            postfix+= expression.charAt(i);
+       String expression_spaces="";
+       for(int k=0; k<expression.length();k++){
+           if(expression.charAt(k)!=' ') 
+           expression_spaces+=""+expression.charAt(k);
+       } 
+       for(int i=0;i<expression_spaces.length();i++){      
+            if(Character.isDigit(expression_spaces.charAt(i))){
+            postfix+= expression_spaces.charAt(i);
           }else{
-               if(expression.charAt(i)=='('){
+               if(expression_spaces.charAt(i)=='('){
                     va++;
-                  op.push(""+expression.charAt(i));
-               }else if(expression.charAt(i)==')'){
+                  op.push(""+expression_spaces.charAt(i));
+               }else if(expression_spaces.charAt(i)==')'  ){
+                   if(op.IsEmpty())
+                       break;
                     String q="";
                     q= (String) op.peak();
+                    
                     while( q == null ? (""+'(') != null : !q.equals(""+'(') ){
                         postfix+=" ";
                         postfix+=op.pop();
@@ -94,27 +102,33 @@ int va=0;
                             break;
                         }
                         q=  (String) op.peak();
+                    }
                         if(q == null ? (""+'(') == null : q.equals(""+'(')){
                             q= (String) op.pop();
-                            break;
+                            if(op.IsEmpty()==false){
+                            q=  (String) op.peak();
+                            }else{
+                                break;
+                            }
+                            
                         }
-                       }
-
-                        if(i==expression.length()-1 && op.IsEmpty()==false){
+                       
+                    
+                        if(i==expression_spaces.length()-1 && op.IsEmpty()==false){
                              postfix+=" ";
                         }                   
                }else if(op.IsEmpty()==true || op.peak()=="("){  
                   postfix+=" "; 
-                  op.push(""+expression.charAt(i));
+                  op.push(""+expression_spaces.charAt(i));
                }else {
                     postfix+=" "; 
                     String s1= (String) op.peak();
-                    op.push(""+expression.charAt(i));
+                    op.push(""+expression_spaces.charAt(i));
                     String s2=(String) op.pop();
                     int x1=switchs(s2);
                     int x2=switchs(s1);
                     if(x1>x2){
-                       op.push(""+expression.charAt(i));
+                       op.push(""+expression_spaces.charAt(i));
                     }if(x2>=x1 && x2 !=7){
                         postfix+=op.pop();
                         postfix+=" ";
@@ -122,7 +136,7 @@ int va=0;
                             for(int f=0;f<op.size();f++){
                                 if(op.peak()!="("){
                                     String s3=(String) op.peak();
-                                    op.push(""+expression.charAt(i));
+                                    op.push(""+expression_spaces.charAt(i));
                                     String s4=(String) op.pop();
                                     int x3=switchs(s4);
                                     int x4=switchs(s3);
@@ -133,7 +147,7 @@ int va=0;
                                }
                            }
                        }
-                        op.push(""+expression.charAt(i));
+                        op.push(""+expression_spaces.charAt(i));
                    }
                }
           }
@@ -142,9 +156,11 @@ int va=0;
      if(Character.isDigit(postfix.charAt(postfix.length()-1)))
         postfix+=" "; 
         for(int j=0;j<f; j++){
+            if(op.peak()!="("){
             postfix+=op.pop();
               if(j<f-1)
              postfix+=" ";
+            }
         } 
         return postfix;
     }
