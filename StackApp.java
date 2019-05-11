@@ -21,7 +21,7 @@ public class StackApp {
         // TODO code application logic here
         System.out.println("Please Enter The Equation ( Without Space!!!!! )");
         Scanner sc=new Scanner (System.in);
-        String input=sc.next();
+        String input=sc.nextLine();
         Stack p=new Stack();
         Islam d=new Islam();
         String x= d.infixToPostfix(input);
