@@ -68,14 +68,8 @@ public class Islam implements IExpressionEvaluator {
                 if (b != 0) {
                     calc = a / b;
                 } else if (b == 0) {
-                    throw new RuntimeException("Linked List out of bounds");
+                    throw new RuntimeException("Divided By Zero");
                 }
-                break;
-            case '%':
-                calc = a % b;
-                break;
-            case '^':
-                calc = (int) pow(a, b);
                 break;
         }
         return calc;
