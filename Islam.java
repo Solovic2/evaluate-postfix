@@ -56,9 +56,8 @@ return s;
         case '/': if(b!=0){
                     calc= a/b;
                 }else if(b==0){
-                    System.out.println("Cannot Divide By zero >> return -1");
-                    return -10;
-                    }
+                    throw new RuntimeException("Divided By zero");
+                }
             break;                     
         case '%': calc= a%b;
             break;
